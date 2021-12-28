@@ -7,7 +7,7 @@ env:
 
 jobs:
   testRunner:
-    name: Test in ${{ matrix.testMode }} ✨
+    name: Test in ${{ matrix.testMode }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -98,7 +98,7 @@ jobs:
 
   buildAndroid:
     needs: testRunner
-    name: Build for Android 📱
+    name: Build for Android
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -141,7 +141,7 @@ jobs:
 
   deployPages:
     needs: buildWebGL
-    name: Deploy to Github Pages 🚀
+    name: Deploy to Github Pages
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -152,7 +152,7 @@ jobs:
           name: build-WebGL
           path: build
 
-      - name: Deploy 🚀
+      - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages
